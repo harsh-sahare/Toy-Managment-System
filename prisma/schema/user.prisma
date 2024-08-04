@@ -1,7 +1,7 @@
 model User{
     uiid String @id @default(uuid()) // Uiid to identify user
     email String @unique //Only one user with one email.
-    password String
+    password String  // password should not be saved as string in db
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     deleted Boolean @default(false) // For soft delete
