@@ -1,4 +1,4 @@
-import userLoginCredentials from "./fieldType";
+import userLoginCredentials from "../fieldType";
 
 const validEmail = (email: string): boolean => {
   const emailRegex =

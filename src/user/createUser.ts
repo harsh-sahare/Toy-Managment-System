@@ -1,5 +1,5 @@
 import prisma_client from "../prisma_client";
-import userLoginCredentials, { userCredentials } from "./fieldType";
+import userLoginCredentials, { userCredentials } from "../fieldType";
 import validUserCredentials from "./utility";
 
 export default async function createNewUser(
@@ -8,7 +8,6 @@ export default async function createNewUser(
   // check is email and password is valid
   if (validUserCredentials(userCredentail)) {
     try {
-      await prisma_client.user.deleteMany();
       const user = await prisma_client.user.create({
         data: userCredentail,
         select: { uiid: true, email: true },
@@ -16,7 +15,7 @@ export default async function createNewUser(
       return user;
     } catch (e) {
       // Todo : Add more detail of the error
-      console.log("Error");
+      console.log("Error", e);
       return null;
     }
   }

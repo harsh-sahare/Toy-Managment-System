@@ -1,8 +1,8 @@
 model Toy{
     uiid String @id @default(uuid())
     name String
-    owner User  @relation(fields: [ownerUiid], references: [uiid]) 
-    ownerUiid String 
+    owner User?  @relation(fields: [ownerUiid], references: [uiid], onDelete: SetNull, onUpdate: Cascade)
+    ownerUiid String?
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     deleted Boolean @default(false) // For soft delete
