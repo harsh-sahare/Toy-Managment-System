@@ -1,13 +1,3 @@
-
-# Toy Management System
-
-It lets the user to create a account and store toys in there database
-
-
-
-
-## Functions
-
 # Toy Management System
 
 It lets the user to create a account and store toys in there database
