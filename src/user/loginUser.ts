@@ -3,13 +3,13 @@ import userLoginCredentials, { userCredentials } from "./fieldType";
 import validUserCredentials from "./utility";
 
 const loginUser = async (
-  userCredentail: userLoginCredentials
+  userCredentail: userLoginCredentials , showDirectory :boolean = false
 ): Promise<userCredentials | null> => {
   if (validUserCredentials(userCredentail)) {
     try {
       const user = await prisma_client.user.findUnique({
         where: userCredentail,
-        select: { email: true, uiid: true },
+        select: { email: true, uiid: true , directory : showDirectory},
       });
       return user;
     } catch (error) {

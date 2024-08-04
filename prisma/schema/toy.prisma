@@ -1,0 +1,9 @@
+model Toy{
+    uiid String @id @default(uuid())
+    name String
+    owner User  @relation(fields: [ownerUiid], references: [uiid]) 
+    ownerUiid String 
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleted Boolean @default(false) // For soft delete
+}

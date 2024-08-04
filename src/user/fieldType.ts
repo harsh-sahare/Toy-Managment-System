@@ -6,4 +6,5 @@ export default interface userLoginCredentials {
 export interface userCredentials {
   uiid: string;
   email: string;
+  directory?
 }
